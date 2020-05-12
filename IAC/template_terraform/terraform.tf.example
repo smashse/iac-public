@@ -1,0 +1,11 @@
+# S3 Backend
+terraform {
+  backend "s3" {
+    encrypt        = true
+    bucket         = "tfstate-template"
+    key            = "terraform/vpc/terraform.tfstate"
+    dynamodb_table = "template-default-vpc"
+    region         = var.aws_region
+    profile        = var.aws_profile
+  }
+}
