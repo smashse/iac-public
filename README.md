@@ -18,6 +18,17 @@ git clone https://github.com/smashse/iac-public.git
 cd IAC/template_terraform/
 ```
 
+Ou para realizar apenas o download do "README.md" e "template_terraform":
+
+```bash
+git init iac-public
+cd iac-public
+git remote add iac-public https://github.com/smashse/iac-public.git
+git fetch iac-public
+git checkout iac-public/master -- IAC/template_terraform
+git checkout iac-public/master -- README.md
+```
+
 **Observação:** Caso deseje alterar o nome dado a VPC, Subnets e Security Groups, execute dentro da pasta do template o comando abaixo.
 
 ```bash
@@ -27,8 +38,8 @@ sed -i "s/template/nomedesejado/g" *.*
 ## Configurar ambiente Terraform
 
 ```bash
-curl "https://releases.hashicorp.com/terraform/0.12.20/terraform_0.12.20_linux_amd64.zip" -o "terraform.zip"
-unzip terraform.zip && sudo cp terraform /usr/local/bin/
+curl "https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip" -o "terraform.zip"
+sudo unzip terraform.zip -d /usr/local/bin/
 ```
 
 ## Realizar customizações do template
@@ -66,7 +77,7 @@ terraform apply
 
 ## Rancher
 
-Edite o arquivo "variables.tf" na variável "aws_certificate_arn", linha 59 e adicione o ARN para o certificado que deverá ser utilizado na ALB(ele servirá para as demais ALB's).
+Edite o arquivo "variables.tf" na variável "aws_certificate_arn"(linha 59) e adicione o ARN para o certificado que deverá ser utilizado na ALB(ele servirá para as demais ALB's).
 
 Para criar as instancias do Rancher, Master, Worker e ALB:
 
