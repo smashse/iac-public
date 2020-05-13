@@ -69,7 +69,7 @@ terraform apply
 
 Edite o arquivo "variables.tf" na variável "aws_certificate_arn"(linha 59) e adicione o ARN para o certificado que deverá ser utilizado na ALB(ele servirá para as demais ALB's).
 
-Para criar as instancias do Rancher, Master, Worker e ALB:
+Para criar as instâncias do Rancher, Master, Worker e ALB:
 
 ```bash
 mv alb_rancher.tf.example alb_rancher.tf
@@ -93,7 +93,7 @@ https://rancher.com/docs/rancher/v2.x/en/installation/options/server-tags/
 
 ## Atlantis e GitLab (Opcional)
 
-Dentro da pasta "other" existem as ALB's e instancias EC2 para a criação do Atlantis e Gitlab.
+Dentro da pasta "other" existem as ALB's e instâncias EC2 para a criação do Atlantis e Gitlab.
 
 ### Para Atlantis:
 
@@ -111,7 +111,7 @@ terraform plan
 terraform apply
 ```
 
-**Observação:** Nos arquivos "ec2_atlantis.tf" e "ec2_gitlab.tf" há a referencia para o "user_data" com os comandos para instalação daquilo que é necessário para o funcionamento das respectivas aplicações durante a criação das instancias.
+**Observação:** Nos arquivos "ec2_atlantis.tf" e "ec2_gitlab.tf" há a referencia para o "user_data" com os comandos para instalação daquilo que é necessário para o funcionamento das respectivas aplicações durante a criação das instâncias.
 
 **Fontes:**
 
@@ -143,8 +143,8 @@ template_terraform
    |-alb_rancher.tf.example    # Recurso de criação de "ALB" para acesso ao "Rancher"
    |-.gitignore                # Especifica arquivos para ignorar
    |-dynamodb.tf               # Recurso de criação de tabela de lock no "DynamoDB"
-   |-ec2_private.tf.example    # Instancias para "Subnets" privadas(Rancher, Master, Worker)
-   |-ec2_public.tf             # Instancias para "Subnets" publicas(Bastion)
+   |-ec2_private.tf.example    # Instâncias para "Subnets" privadas(Rancher, Master, Worker)
+   |-ec2_public.tf             # Instâncias para "Subnets" publicas(Bastion)
    |-eip.tf                    # Recurso para criação de "Elastic IP"
    |-iam_rancher.tf.example    # Recurso para criação de usuário "IAM" para o "Rancher"
    |-igw.tf                    # Recurso para criar um "Internet Gateway"
