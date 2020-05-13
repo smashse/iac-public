@@ -1,13 +1,3 @@
-**Fontes:**
-
-```txt
-https://rancher.com/docs/rancher/v2.x/en/installation/other-installation-methods/single-node-docker/
-```
-
-```txt
-https://rancher.com/docs/rancher/v2.x/en/installation/options/server-tags/
-```
-
 Este é um template de exemplo para criação de um ambiente com o provider AWS em Terraform.
 
 
@@ -91,6 +81,15 @@ terraform apply
 
 **Observação:** Salve o "User" e "Secret" referentes ao usuário "rancher-user" e comente a saída para os mesmos no arquivo "iam_rancher.tf"(linha 16).
 
+**Fontes:**
+
+```txt
+https://rancher.com/docs/rancher/v2.x/en/installation/other-installation-methods/single-node-docker/
+```
+
+```txt
+https://rancher.com/docs/rancher/v2.x/en/installation/options/server-tags/
+```
 
 ## Atlantis e GitLab (Opcional)
 
@@ -114,6 +113,15 @@ terraform apply
 
 **Observação:** Nos arquivos "ec2_atlantis.tf" e "ec2_gitlab.tf" há a referencia para o "user_data" com os comandos para instalação daquilo que é necessário para o funcionamento das respectivas aplicações durante a criação das instancias.
 
+**Fontes:**
+
+```txt
+https://www.runatlantis.io/guide/testing-locally.html#install-terraform
+```
+
+```txt
+https://about.gitlab.com/install/#centos-7
+```
 
 # Estrutura do template
 
