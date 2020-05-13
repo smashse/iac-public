@@ -164,14 +164,28 @@ template_terraform
 # Por fazer
 
 ```txt
-(A) Detalhar processo de configuração do Rancher
+(A) Detalhar processo de configuração do "Rancher"
    |- Criação e utilização de "API & Keys"
    |- Criação de "Cloud Credentials"
    |- Criação de "Node Templates"
-   |- Em "Cluster", detalhar a criação(Custom e RKE) e importação(Kubernetes e K3S)
+   |- Em "Cluster", detalhar a criação("Custom" e "RKE") e importação(Kubernetes e K3S)
 (B) Detalhar processo de criação de certificados
    |- Criação de um dominio no "www.freenom.com"
    |- Usar o "Certificate Manager" da "AWS" com o domínio criado para obter o "ARN"
-(C) Detalhar GitLab Auto DevOps com Kubernetes no Rancher
-(D) Detalhar Gitlab GitOps com o Terraform
+(C) Detalhar "GitLab Auto DevOps" com "Kubernetes" no "Rancher"
+(D) Detalhar "Gitlab GitOps" em "GitLab CI" com o "Terraform"
+```
+
+**Fontes:**
+
+```txt
+https://about.gitlab.com/blog/2019/11/04/gitlab-for-gitops-prt-1/
+```
+
+```txt
+https://about.gitlab.com/blog/2019/11/12/gitops-part-2/
+```
+
+```txt
+https://about.gitlab.com/blog/2019/07/01/using-ansible-and-gitlab-as-infrastructure-for-code/
 ```
