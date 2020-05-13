@@ -91,22 +91,23 @@ terraform apply
 
 **Observação:** Salve o "User" e "Secret" referentes ao usuário "rancher-user" e comente a saída para os mesmos no arquivo "iam_rancher.tf"(linha 16).
 
+
 ## Atlantis e GitLab (Opcional)
 
 Dentro da pasta "other" existem as ALB's e instancias EC2 para a criação do Atlantis e Gitlab.
-
-### Para Gitlab:
-
-```bash
-cp other/*_gitlab.tf .
-terraform plan
-terraform apply
-```
 
 ### Para Atlantis:
 
 ```bash
 cp other/*_atlantis.tf .
+terraform plan
+terraform apply
+```
+
+### Para Gitlab:
+
+```bash
+cp other/*_gitlab.tf .
 terraform plan
 terraform apply
 ```
