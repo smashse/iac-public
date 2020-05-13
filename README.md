@@ -168,7 +168,7 @@ template_terraform
    |- Criação e utilização de "API & Keys"
    |- Criação de "Cloud Credentials"
    |- Criação de "Node Templates"
-   |- Em "Cluster", detalhar a criação("Custom" e "RKE") e importação(Kubernetes e K3S)
+   |- Em "Cluster", detalhar a criação("Custom" e "RKE") e importação("Kubernetes" e "K3S")
 (B) Detalhar processo de criação de certificados
    |- Criação de um dominio no "www.freenom.com"
    |- Usar o "Certificate Manager" da "AWS" com o domínio criado para obter o "ARN"
