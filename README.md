@@ -160,3 +160,18 @@ template_terraform
    |-variables.tf              # Arquivo de variáveis para utilização no projeto
    |-vpc.tf                    # Recurso de criação de "VPC"
 ```
+
+# Por fazer
+
+```txt
+(A) Detalhar processo de configuração do Rancher
+   |- Criação e utilização de "API & Keys"
+   |- Criação de "Cloud Credentials"
+   |- Criação de "Node Templates"
+   |- Em "Cluster", detalhar a criação(Custom e RKE) e importação(Kubernetes e K3S)
+(B) Detalhar processo de criação de certificados
+   |- Criação de um dominio no "www.freenom.com"
+   |- Usar o "Certificate Manager" da "AWS" com o domínio criado para obter o "ARN"
+(C) Detalhar GitLab Auto DevOps com Kubernetes no Rancher
+(D) Detalhar Gitlab GitOps com o Terraform
+```
