@@ -5,7 +5,7 @@ Este é um template de exemplo para criação de um ambiente com o provider AWS 
 
 ```bash
 git clone https://github.com/smashse/iac-public.git
-cd IAC/template_terraform/
+cd iac-public/IAC/template_terraform/
 ```
 
 Ou para realizar apenas o download do "README.md" e "template_terraform":
