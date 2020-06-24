@@ -1,6 +1,5 @@
 Este é um template de exemplo para criação de um ambiente com o provider AWS em Terraform.
 
-
 ## Download do template Terraform
 
 ```bash
@@ -24,6 +23,8 @@ git checkout iac-public/master -- README.md
 ```bash
 sed -i "s/template/nomedesejado/g" *.*
 ```
+
+**Observação:** Edite em "sn.tf" o campo "availability_zone" para que reflita a região que utilizará.
 
 ## Configurar ambiente Terraform
 
@@ -60,10 +61,14 @@ terraform apply
 
 ```bash
 mv terraform.tf.example terraform.tf
+nano -c terraform.tf
 terraform init
 terraform plan
 terraform apply
 ```
+
+**Observação:** Edite os campos "region" e "profile" para os mesmos utilizados em "variables.tf".
+
 
 ## Rancher
 
