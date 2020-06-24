@@ -2,7 +2,7 @@
 resource "aws_subnet" "template_public_subnet_a" {
   vpc_id                  = aws_vpc.template_default_vpc.id
   cidr_block              = "10.0.1.0/24"
-  availability_zone       = "us-east-2a"
+  availability_zone       = "us-east-1a"
   map_public_ip_on_launch = true
 
   tags = {
@@ -13,7 +13,7 @@ resource "aws_subnet" "template_public_subnet_a" {
 resource "aws_subnet" "template_public_subnet_b" {
   vpc_id                  = aws_vpc.template_default_vpc.id
   cidr_block              = "10.0.2.0/24"
-  availability_zone       = "us-east-2b"
+  availability_zone       = "us-east-1b"
   map_public_ip_on_launch = true
 
   tags = {
@@ -25,7 +25,7 @@ resource "aws_subnet" "template_public_subnet_b" {
 resource "aws_subnet" "template_private_subnet_a" {
   vpc_id                  = aws_vpc.template_default_vpc.id
   cidr_block              = "10.0.10.0/24"
-  availability_zone       = "us-east-2a"
+  availability_zone       = "us-east-1a"
   map_public_ip_on_launch = false
 
   tags = {
@@ -36,7 +36,7 @@ resource "aws_subnet" "template_private_subnet_a" {
 resource "aws_subnet" "template_private_subnet_b" {
   vpc_id                  = aws_vpc.template_default_vpc.id
   cidr_block              = "10.0.20.0/24"
-  availability_zone       = "us-east-2b"
+  availability_zone       = "us-east-1b"
   map_public_ip_on_launch = false
 
   tags = {

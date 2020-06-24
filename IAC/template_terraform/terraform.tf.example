@@ -5,7 +5,7 @@ terraform {
     bucket         = "tfstate-template"
     key            = "terraform/vpc/terraform.tfstate"
     dynamodb_table = "template-default-vpc"
-    region         = var.aws_region
-    profile        = var.aws_profile
+    region         = "us-east-1"
+    profile        = "template"
   }
 }
