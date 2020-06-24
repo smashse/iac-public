@@ -24,8 +24,6 @@ git checkout iac-public/master -- README.md
 sed -i "s/template/nomedesejado/g" *.*
 ```
 
-**Observação:** Edite em "sn.tf" o campo "availability_zone" para que reflita a região que utilizará.
-
 ## Configurar ambiente Terraform
 
 ```bash
@@ -68,7 +66,6 @@ terraform apply
 ```
 
 **Observação:** Edite os campos "region" e "profile" para os mesmos utilizados em "variables.tf".
-
 
 ## Rancher
 
