@@ -4,17 +4,17 @@ Este é um template de exemplo para criação de um ambiente com o provider AWS 
 
 ```bash
 git clone https://github.com/smashse/iac-public.git
-cd iac-public/IAC/template_terraform/
+cd iac-public/IAC/template_terraform_aws_ec2/
 ```
 
-Ou para realizar apenas o download do "README.md" e "template_terraform":
+Ou para realizar apenas o download do "README.md" e "template_terraform_aws_ec2":
 
 ```bash
 git init iac-public
 cd iac-public
 git remote add iac-public https://github.com/smashse/iac-public.git
 git fetch iac-public
-git checkout iac-public/master -- IAC/template_terraform
+git checkout iac-public/master -- IAC/template_terraform_aws_ec2
 git checkout iac-public/master -- README.md
 ```
 
@@ -128,7 +128,7 @@ https://about.gitlab.com/install/#centos-7
 # Estrutura do template
 
 ```txt
-template_terraform
+template_terraform_aws_ec2
    |-cloud_init                # Pasta contendo os arquivos "User Data" padrão
         |-cloud-init-atlantis.conf                # "User Data" para instalação do "Atlantis"
         |-cloud-init-docker.conf                  # "User Data" para instalação do "Docker"
