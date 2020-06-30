@@ -31,9 +31,17 @@ variable "aws_blueprint_id" {
 }
 
 variable "aws_bundle_id" {
-  type        = string
+  type        = map
   description = "Instance type used for all Bundle instances"
-  default     = "micro_2_0"
+  default = {
+    "nano"    = "nano_2_0"
+    "micro"   = "micro_2_0"
+    "small"   = "small_2_0"
+    "medium"  = "medium_2_0"
+    "large"   = "large_2_0"
+    "xlarge"  = "xlarge_2_0"
+    "2xlarge" = "2xlarge_2_0"
+  }
 }
 
 variable "ssh_key_pair_name" {
