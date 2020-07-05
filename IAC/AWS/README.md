@@ -4,7 +4,7 @@ Este é um template de exemplo para criação de um ambiente com o provider AWS 
 
 ```bash
 git clone https://github.com/smashse/iac-public.git
-cd iac-public/IAC/template_terraform_aws_ec2/
+cd iac-public/IAC/AWS/template_terraform_aws_ec2/
 ```
 
 Ou para realizar apenas o download do "README.md" e "template_terraform_aws_ec2":
@@ -14,8 +14,8 @@ git init iac-public
 cd iac-public
 git remote add iac-public https://github.com/smashse/iac-public.git
 git fetch iac-public
-git checkout iac-public/master -- IAC/template_terraform_aws_ec2
-git checkout iac-public/master -- README.md
+git checkout iac-public/master -- IAC/AWS/template_terraform_aws_ec2
+git checkout iac-public/master -- AWS/README.md
 ```
 
 **Observação:** Caso deseje alterar o nome dado a VPC, Subnets e Security Groups, execute dentro da pasta do template o comando abaixo.
