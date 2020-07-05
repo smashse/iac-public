@@ -84,7 +84,7 @@ export TF_PROJECT="${TF_NAME}-terraform-project"
 export TF_CREDS=~/.config/gcloud/${TF_NAME}-account.json
 ```
 
-**Note:** Change "template" in the variable "TF_NAME" to the name that will be used in your project
+**Note:** Change "template" in the variable "TF_NAME" to the name that will be used in your project.
 
 ### Create the Terraform Project
 
