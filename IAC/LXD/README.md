@@ -9,7 +9,7 @@ sudo apt install -y snapd
 ### Instalar o LXD
 
 ```bash
-sudo snap install lxd --channel=4.1/stable --classic
+sudo snap install lxd --channel=4.3/stable --classic
 ```
 
 ### Inicializar a configuração do LXD
@@ -112,7 +112,7 @@ lxc remote set-default mobile
 ### Copiar imagem do Ubuntu para o LXD
 
 ```bash
-lxc image copy images:ubuntu/focal mobile: --alias focal --auto-update
+lxc image copy images:ubuntu/focal/cloud mobile: --alias focal --auto-update
 ```
 
 ### Configuração do Terraform para uso com o LXD

@@ -1,0 +1,20 @@
+#cloud-config
+runcmd:
+ - sudo echo "#ubuntu" > /etc/apt/sources.list
+ - sudo echo "deb http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse" >> /etc/apt/sources.list
+ - sudo echo "deb http://archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse" >> /etc/apt/sources.list
+ - sudo echo "deb http://archive.ubuntu.com/ubuntu focal-backports main restricted universe multiverse" >> /etc/apt/sources.list
+ - sudo echo "deb http://archive.ubuntu.com/ubuntu focal-proposed restricted main universe multiverse" >> /etc/apt/sources.list
+ - sudo echo "#security" >> /etc/apt/sources.list
+ - sudo echo "deb http://security.ubuntu.com/ubuntu focal-security main restricted universe multiverse" >> /etc/apt/sources.list
+ - sudo echo "#partner" >> /etc/apt/sources.list
+ - sudo echo "deb http://archive.canonical.com/ubuntu focal partner" >> /etc/apt/sources.list
+ - sudo echo "DEBIAN_FRONTEND=noninteractive" >> /etc/environment
+ - sudo source /etc/environment && source /etc/environment
+ - sudo apt update --fix-missing
+ - sudo apt -y install bash-completion curl htop ipset mlocate nano net-tools tar unzip wget xz-utils
+ - sudo apt -y install snap snapd
+ - sudo snap install kubeadm --channel=1.18/stable --classic
+ - sudo snap install kubectl --channel=1.18/stable --classic
+ - sudo apt -y dist-upgrade
+ - sudo apt -y autoremove
