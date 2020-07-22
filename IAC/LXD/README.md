@@ -84,6 +84,7 @@ lxc profile copy default ubuntu-profile
 ```bash
 lxc profile set ubuntu-profile boot.autostart true
 lxc profile set ubuntu-profile boot.autostart.delay 1
+lxc profile set ubuntu-profile security.privileged true
 lxc profile set ubuntu-profile limits.cpu 1
 lxc profile set ubuntu-profile limits.memory 64MB
 lxc profile device set ubuntu-profile root size 512MB
