@@ -3,7 +3,7 @@
 ### Instalar o SNAP caso não tenha
 
 ```bash
-sudo apt install -y snapd
+sudo apt install -y snap snapd
 ```
 
 ### Instalar o LXD
