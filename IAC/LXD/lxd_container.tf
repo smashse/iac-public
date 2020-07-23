@@ -10,7 +10,7 @@ resource "lxd_container" "control" {
   }
 
   limits = {
-    cpu = 1
+    cpu = 2
   }
 }
 
@@ -26,6 +26,6 @@ resource "lxd_container" "cargo" {
   }
 
   limits = {
-    cpu = 1
+    cpu = 2
   }
 }

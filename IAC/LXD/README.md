@@ -25,7 +25,7 @@ Name of the new storage pool [default=default]:
 Name of the storage backend to use (ceph, btrfs, dir, lvm) [default=btrfs]:
 Create a new BTRFS pool? (yes/no) [default=yes]:
 Would you like to use an existing block device? (yes/no) [default=no]:
-Size in GB of the new loop device (1GB minimum) [default=15GB]: 5GB
+Size in GB of the new loop device (1GB minimum) [default=15GB]: 10GB
 Would you like to connect to a MAAS server? (yes/no) [default=no]:
 Would you like to create a new local network bridge? (yes/no) [default=yes]:
 What should the new bridge be called? [default=lxdbr0]:
@@ -53,7 +53,7 @@ networks:
   type: ""
 storage_pools:
 - config:
-    size: 5GB
+    size: 10GB
   description: ""
   name: default
   driver: btrfs
@@ -84,10 +84,12 @@ lxc profile copy default ubuntu-profile
 ```bash
 lxc profile set ubuntu-profile boot.autostart true
 lxc profile set ubuntu-profile boot.autostart.delay 1
+lxc profile set ubuntu-profile security.nesting true
 lxc profile set ubuntu-profile security.privileged true
-lxc profile set ubuntu-profile limits.cpu 1
-lxc profile set ubuntu-profile limits.memory 64MB
-lxc profile device set ubuntu-profile root size 512MB
+lxc profile set ubuntu-profile linux.kernel_modules ip_tables,ip6_tables,netlink_diag,nf_nat,overlay
+lxc profile set ubuntu-profile limits.cpu 2
+lxc profile set ubuntu-profile limits.memory 1024MB
+lxc profile device set ubuntu-profile root size 2048MB
 ```
 
 ### Caso deseje alterar a porta do LXD
@@ -113,6 +115,44 @@ lxc remote set-default mobile
 
 ```bash
 lxc image copy images:ubuntu/focal/cloud mobile: --alias focal --auto-update
+```
+
+### Criando um container do Ubuntu
+
+```bash
+lxc launch mobile:focal boat --profile=ubuntu-profile
+```
+
+### Criando um YAML para Cloud-Init
+
+```bash
+sudo nano -c ubuntu-generic-clean.yml
+```
+
+```yaml
+#cloud-config
+runcmd:
+ - sudo echo "#ubuntu" > /etc/apt/sources.list
+ - sudo echo "deb http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse" >> /etc/apt/sources.list
+ - sudo echo "deb http://archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse" >> /etc/apt/sources.list
+ - sudo echo "deb http://archive.ubuntu.com/ubuntu focal-backports main restricted universe multiverse" >> /etc/apt/sources.list
+ - sudo echo "deb http://archive.ubuntu.com/ubuntu focal-proposed restricted main universe multiverse" >> /etc/apt/sources.list
+ - sudo echo "#security" >> /etc/apt/sources.list
+ - sudo echo "deb http://security.ubuntu.com/ubuntu focal-security main restricted universe multiverse" >> /etc/apt/sources.list
+ - sudo echo "#partner" >> /etc/apt/sources.list
+ - sudo echo "deb http://archive.canonical.com/ubuntu focal partner" >> /etc/apt/sources.list
+ - sudo echo "DEBIAN_FRONTEND=noninteractive" >> /etc/environment
+ - sudo source /etc/environment && source /etc/environment
+ - sudo apt update --fix-missing
+ - sudo apt -y install bash-completion curl htop ipset mlocate nano net-tools tar unzip wget xz-utils
+ - sudo apt -y dist-upgrade
+ - sudo apt -y autoremove
+```
+
+### Criando um container do Ubuntu e usando o YAML do Cloud-Init
+
+```bash
+lxc launch mobile:focal boat --profile=ubuntu-profile --config=user.user-data="$(cat cloud_init/ubuntu-generic-clean.yml)"
 ```
 
 ### Configuração do Terraform para uso com o LXD
