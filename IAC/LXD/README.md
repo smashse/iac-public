@@ -22,10 +22,10 @@ sudo lxd init
 Would you like to use LXD clustering? (yes/no) [default=no]: no
 Do you want to configure a new storage pool? (yes/no) [default=yes]: yes
 Name of the new storage pool [default=default]: default
-Name of the storage backend to use (ceph, btrfs, dir, lvm) [default=btrfs]: btrfs
-Create a new BTRFS pool? (yes/no) [default=yes]: yes
-Would you like to use an existing block device? (yes/no) [default=no]: no
-Size in GB of the new loop device (1GB minimum) [default=15GB]: 10GB
+Name of the storage backend to use (ceph, btrfs, dir, lvm, zfs) [default=zfs]: zfs
+Create a new ZFS pool? (yes/no) [default=yes]: yes
+Would you like to use an existing empty disk or partition? (yes/no) [default=no]: no
+Size in GB of the new loop device (1GB minimum) [default=30GB]: 10GB
 Would you like to connect to a MAAS server? (yes/no) [default=no]: no
 Would you like to create a new local network bridge? (yes/no) [default=yes]: yes
 What should the new bridge be called? [default=lxdbr0]: lxdbr0
@@ -36,7 +36,7 @@ Address to bind LXD to (not including port) [default=all]: all
 Port to bind LXD to [default=8443]: 8443
 Trust password for new clients:
 Again:
-Would you like stale cached images to be updated automatically? (yes/no) [default=yes]: yes
+Would you like stale cached images to be updated automatically? (yes/no) [default=yes] yes
 Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]: yes
 ```
 
@@ -56,7 +56,7 @@ storage_pools:
     size: 10GB
   description: ""
   name: default
-  driver: btrfs
+  driver: zfs
 profiles:
 - config: {}
   description: ""
@@ -77,6 +77,11 @@ cluster: null
 
 ```bash
 lxc remote add mobile 127.0.0.1 --accept-certificate
+```
+
+### Definir o acesso remoto padrão ao LXD
+
+```bash
 lxc remote set-default mobile
 ```
 
@@ -108,6 +113,7 @@ lxc profile set ubuntu-profile security.privileged true
 lxc profile set ubuntu-profile linux.kernel_modules br_netfilter,ip_tables,ip6_tables,netlink_diag,nf_nat,overlay
 lxc profile set ubuntu-profile limits.cpu 2
 lxc profile set ubuntu-profile limits.memory 1024MB
+lxc profile set ubuntu-profile limits.memory.swap false
 lxc profile device set ubuntu-profile root size 2048MB
 ```
 
