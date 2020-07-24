@@ -22,4 +22,9 @@ runcmd:
  - sudo apt update --fix-missing
  - sudo apt -y install containerd.io=1.2.13-2 kubeadm=1.18.6-00 kubelet=1.18.6-00 kubectl=1.18.6-00
  - sudo apt-mark hold containerd.io=1.2.13-2 kubeadm=1.18.6-00 kubelet=1.18.6-00 kubectl=1.18.6-00
+ - sudo mkdir -p /etc/containerd && sudo containerd config default > /etc/containerd/config.toml
  - sudo usermod -aG docker ${USER}
+ - sudo systemctl daemon-reload
+ - sudo systemctl enable containerd && sudo systemctl start containerd
+ - sudo systemctl enable kubelet && sudo systemctl start kubelet
+ - sudo swapoff -a
