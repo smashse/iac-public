@@ -9,7 +9,7 @@ sudo apt install -y snap snapd
 ### Instalar o LXD
 
 ```bash
-sudo snap install lxd --channel=4.3/stable --classic
+sudo snap install lxd --classic
 ```
 
 ### Inicializar a configuração do LXD
