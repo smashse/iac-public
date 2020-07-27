@@ -110,7 +110,7 @@ lxc profile set ubuntu-profile boot.autostart true
 lxc profile set ubuntu-profile boot.autostart.delay 1
 lxc profile set ubuntu-profile security.nesting true
 lxc profile set ubuntu-profile security.privileged true
-lxc profile set ubuntu-profile linux.kernel_modules br_netfilter,ip_vs,ip_vs_rr,ip_vs_wrr,ip_vs_sh,ip_tables,ip6_tables,netlink_diag,nf_nat,overlay
+lxc profile set ubuntu-profile linux.kernel_modules br_netfilter,ip_vs,ip_vs_rr,ip_vs_wrr,ip_vs_sh,ip_tables,ip6_tables,netlink_diag,nf_nat,overlay,xt_conntrack
 lxc profile set ubuntu-profile limits.cpu 2
 lxc profile set ubuntu-profile limits.memory 1024MB
 lxc profile set ubuntu-profile limits.memory.swap false

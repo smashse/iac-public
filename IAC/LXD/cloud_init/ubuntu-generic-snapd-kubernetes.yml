@@ -12,7 +12,7 @@ runcmd:
  - sudo echo "DEBIAN_FRONTEND=noninteractive" >> /etc/environment
  - sudo source /etc/environment && source /etc/environment
  - sudo apt update --fix-missing
- - sudo apt -y install apt-transport-https bash-completion ca-certificates conntrack curl ethtool htop ipset mlocate nano net-tools nftables socat software-properties-common tar unzip wget xz-utils
+ - sudo apt -y install apt-transport-https bash-completion ca-certificates conntrack curl ethtool gnupg2 htop ipset mlocate nano net-tools nftables socat software-properties-common tar unzip wget xz-utils
  - sudo apt -y install snap snapd
  - sudo snap install docker --classic
  - sudo snap install kubeadm --classic

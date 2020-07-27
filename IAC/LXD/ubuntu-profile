@@ -5,7 +5,7 @@ config:
   limits.cpu: "2"
   limits.memory: 1024MB
   limits.memory.swap: "false"
-  linux.kernel_modules: br_netfilter,ip_vs,ip_vs_rr,ip_vs_wrr,ip_vs_sh,ip_tables,ip6_tables,netlink_diag,nf_nat,overlay
+  linux.kernel_modules: br_netfilter,ip_vs,ip_vs_rr,ip_vs_wrr,ip_vs_sh,ip_tables,ip6_tables,netlink_diag,nf_nat,overlay,xt_conntrack
   raw.lxc: |
     lxc.apparmor.profile=unconfined
     lxc.mount.auto=proc:rw sys:rw cgroup:rw
