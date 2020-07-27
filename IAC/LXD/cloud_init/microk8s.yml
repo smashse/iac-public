@@ -1,0 +1,7 @@
+#cloud-config
+runcmd:
+ - sudo echo "DEBIAN_FRONTEND=noninteractive" >> /etc/environment
+ - sudo source /etc/environment && source /etc/environment
+ - sudo apt update --fix-missing
+ - sudo apt -y install snap snapd
+ - sudo snap install microk8s --classic
