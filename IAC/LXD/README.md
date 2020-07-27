@@ -158,7 +158,115 @@ runcmd:
 ### Criando um container do Ubuntu e usando o YAML do Cloud-Init
 
 ```bash
-lxc launch mobile:focal boat --profile=ubuntu-profile --config=user.user-data="$(cat cloud_init/ubuntu-generic-clean.yml)"
+lxc launch mobile:focal boat --profile=ubuntu-profile --config=user.user-data="$(cat ubuntu-generic-clean.yml)"
+```
+
+### Criar perfil para utilização com Kubernetes
+
+```bash
+lxc profile create microk8s-profile
+```
+
+```bash
+nano -c microk8s-profile
+```
+
+```yaml
+name: microk8s-profile
+config:
+  boot.autostart: "true"
+  boot.autostart.delay: 1
+  limits.cpu: "2"
+  limits.memory: 1024MB
+  limits.memory.swap: "false"
+  linux.kernel_modules: br_netfilter,ip_vs,ip_vs_rr,ip_vs_wrr,ip_vs_sh,ip_tables,ip6_tables,netlink_diag,nf_nat,overlay,xt_conntrack
+  raw.lxc: |
+    lxc.apparmor.profile=unconfined
+    lxc.mount.auto=proc:rw sys:rw cgroup:rw
+    lxc.cgroup.devices.allow=a
+    lxc.cap.drop=
+  security.nesting: "true"
+  security.privileged: "true"
+description: ""
+devices:
+  eth0:
+    name: eth0
+    network: lxdbr0
+    type: nic
+  root:
+    path: /
+    pool: default
+    size: 2048MB
+    type: disk
+  aadisable:
+    path: /sys/module/nf_conntrack/parameters/hashsize
+    source: /sys/module/nf_conntrack/parameters/hashsize
+    type: disk
+  aadisable1:
+    path: /sys/module/apparmor/parameters/enabled
+    source: /dev/null
+    type: disk
+  aadisable2:
+    path: /dev/zfs
+    source: /dev/zfs
+    type: disk
+  aadisable3:
+    path: /dev/kmsg
+    source: /dev/kmsg
+    type: disk
+```
+
+```bash
+cat microk8s-profile | lxc profile edit microk8s-profile
+```
+
+**Observação:** Caso queira ajustar os valores de CPU, MEMÓRIA e DISCO para o perfil "microk8s-profile", dobrar os valores por exemplo, execute os comandos abaixo.
+
+```bash
+lxc profile set microk8s-profile limits.cpu 4
+lxc profile set microk8s-profile limits.memory 2048MB
+lxc profile device set microk8s-profile root size 4096MB
+```
+
+```bash
+sudo nano -c microk8s.yml
+```
+
+```yaml
+#cloud-config
+runcmd:
+ - sudo echo "DEBIAN_FRONTEND=noninteractive" >> /etc/environment
+ - sudo source /etc/environment && source /etc/environment
+ - sudo apt update --fix-missing
+ - sudo apt -y install snap snapd
+ - sudo snap install microk8s --classic
+ ```
+
+```bash
+lxc launch mobile:focal boat --profile=microk8s-profile --config=user.user-data="$(cat microk8s.yml)"
+```
+
+```bash
+lxc exec boat bash
+```
+
+```bash
+root@boat:~# microk8s.kubectl get nodes
+NAME   STATUS   ROLES    AGE   VERSION
+boat   Ready    <none>   66s   v1.18.6-1+64f53401f200a7
+oot@boat:~# microk8s add-node
+Join node with: microk8s join 10.253.245.192:25000/95755207afa39ada1adda4d8c58182c6
+
+If the node you are adding is not reachable through the default interface you can use one of the following:
+ microk8s join 10.1.89.0:25000/95755207afa39ada1adda4d8c58182c6
+ microk8s join 10.253.245.192:25000/95755207afa39ada1adda4d8c58182c6
+root@boat:~#
+```
+
+**Fontes:**
+
+```txt
+https://microk8s.io/docs
 ```
 
 ### Configuração do Terraform para uso com o LXD
