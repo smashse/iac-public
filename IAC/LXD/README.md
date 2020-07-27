@@ -110,7 +110,7 @@ lxc profile set ubuntu-profile boot.autostart true
 lxc profile set ubuntu-profile boot.autostart.delay 1
 lxc profile set ubuntu-profile security.nesting true
 lxc profile set ubuntu-profile security.privileged true
-lxc profile set ubuntu-profile linux.kernel_modules br_netfilter,ip_tables,ip6_tables,netlink_diag,nf_nat,overlay
+lxc profile set ubuntu-profile linux.kernel_modules br_netfilter,ip_vs,ip_vs_rr,ip_vs_wrr,ip_vs_sh,ip_tables,ip6_tables,netlink_diag,nf_nat,overlay
 lxc profile set ubuntu-profile limits.cpu 2
 lxc profile set ubuntu-profile limits.memory 1024MB
 lxc profile set ubuntu-profile limits.memory.swap false
@@ -150,7 +150,7 @@ runcmd:
  - sudo echo "DEBIAN_FRONTEND=noninteractive" >> /etc/environment
  - sudo source /etc/environment && source /etc/environment
  - sudo apt update --fix-missing
- - sudo apt -y install bash-completion curl htop ipset mlocate nano net-tools tar unzip wget xz-utils
+ - sudo apt -y install apt-transport-https bash-completion ca-certificates conntrack curl ethtool htop ipset mlocate nano net-tools nftables socat software-properties-common tar unzip wget xz-utils
  - sudo apt -y dist-upgrade
  - sudo apt -y autoremove
 ```
