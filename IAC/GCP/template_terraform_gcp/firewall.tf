@@ -1,6 +1,6 @@
-resource "google_compute_firewall" "microk8s_default_firewall" {
-  name    = "microk8s-default-firewall"
-  network = google_compute_network.microk8s_default_vpc.name
+resource "google_compute_firewall" "template_default_firewall" {
+  name    = "template-default-firewall"
+  network = google_compute_network.template_default_vpc.name
 
   allow {
     protocol = "icmp"
