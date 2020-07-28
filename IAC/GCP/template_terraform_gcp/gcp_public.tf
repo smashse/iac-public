@@ -8,6 +8,10 @@ resource "google_compute_instance" "template_instance" {
     }
   }
 
+  metadata = {
+    user-data = file("./cloud_init/ubuntu-generic-clean.yml")
+  }
+
   network_interface {
     network = google_compute_network.template_default_vpc.self_link
     access_config {
