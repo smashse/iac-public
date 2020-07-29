@@ -209,4 +209,5 @@ https://cloud.google.com/compute/docs/regions-zones/#available
 https://cloud.google.com/compute/docs/machine-types
 https://cloud.google.com/compute/docs/images
 https://cloud.google.com/endpoints/docs/openapi/enable-api#gcloud
+https://cloud.google.com/compute/docs/instances/connecting-to-instance
 ```
