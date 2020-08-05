@@ -4,11 +4,22 @@ resource "google_compute_firewall" "template_default_firewall" {
 
   allow {
     protocol = "icmp"
+    ports    = ["0-65535"]
   }
 
   allow {
     protocol = "tcp"
-    ports    = ["22", "80", "8080", "1000-2000"]
+    ports    = ["0-65535"]
+  }
+
+  allow {
+    protocol = "udp"
+    ports    = ["0-65535"]
+  }
+
+  allow {
+    protocol = "sctp"
+    ports    = ["0-65535"]
   }
 
   source_tags   = ["ssh", "web"]
