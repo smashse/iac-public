@@ -14,6 +14,7 @@ resource "google_compute_instance" "template_instance" {
 
   network_interface {
     network = google_compute_network.template_default_vpc.self_link
+    #network_ip = "10.158.0.2"
     access_config {
     }
   }

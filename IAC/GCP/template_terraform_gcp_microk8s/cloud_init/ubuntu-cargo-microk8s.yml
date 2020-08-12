@@ -1,0 +1,22 @@
+#cloud-config
+runcmd:
+ - sudo echo "#ubuntu" > /etc/apt/sources.list
+ - sudo echo "deb http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse" >> /etc/apt/sources.list
+ - sudo echo "deb http://archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse" >> /etc/apt/sources.list
+ - sudo echo "deb http://archive.ubuntu.com/ubuntu focal-backports main restricted universe multiverse" >> /etc/apt/sources.list
+ - sudo echo "deb http://archive.ubuntu.com/ubuntu focal-proposed restricted main universe multiverse" >> /etc/apt/sources.list
+ - sudo echo "#security" >> /etc/apt/sources.list
+ - sudo echo "deb http://security.ubuntu.com/ubuntu focal-security main restricted universe multiverse" >> /etc/apt/sources.list
+ - sudo echo "#partner" >> /etc/apt/sources.list
+ - sudo echo "deb http://archive.canonical.com/ubuntu focal partner" >> /etc/apt/sources.list
+ - sudo echo "DEBIAN_FRONTEND=noninteractive" >> /etc/environment
+ - sudo source /etc/environment && source /etc/environment
+ - sudo apt update --fix-missing
+ - sudo apt -y install apt-transport-https bash-completion ca-certificates conntrack curl ethtool gnupg2 htop ipset mlocate nano net-tools nftables socat software-properties-common tar unzip wget xz-utils
+ - sudo apt -y snap snapd
+ - sudo snap refresh
+ - sudo snap install microk8s --classic
+ - sudo microk8s status --wait-ready
+ - sudo microk8s join 10.158.0.2:25000/868f88ee477f893de65c99d906e767dcaf59ce10fe30795ef9b2d11af4faefa
+ - sudo apt -y dist-upgrade
+ - sudo apt -y autoremove

@@ -1,0 +1,8 @@
+# GCS Backend
+terraform {
+  backend "gcs" {
+    bucket      = "template-terraform"
+    prefix      = "terraform/vpc/tfstate/"
+    credentials = "~/.config/gcloud/template-account.json"
+  }
+}
