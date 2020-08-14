@@ -1,0 +1,58 @@
+Apply complete! Resources: 52 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+cluster_endpoint = https://F860DB549500E9151F9412D852FBD85C.sk1.us-east-1.eks.amazonaws.com
+cluster_name = template-eks-Jse97EO0
+cluster_security_group_id = sg-0cba0d9403423bba6
+config_map_aws_auth = [
+  {
+    "data" = {
+      "mapAccounts" = "[]\n"
+      "mapRoles" = "- \"groups\":\n  - \"system:bootstrappers\"\n  - \"system:nodes\"\n  \"rolearn\": \"arn:aws:iam::578735578565:role/template-eks-Jse97EO02020081415010658170000000a\"\n  \"username\": \"system:node:{{EC2PrivateDNSName}}\"\n"
+      "mapUsers" = "[]\n"
+    }
+    "id" = "kube-system/aws-auth"
+    "metadata" = [
+      {
+        "generate_name" = ""
+        "generation" = 0
+        "name" = "aws-auth"
+        "namespace" = "kube-system"
+        "resource_version" = "591"
+        "self_link" = "/api/v1/namespaces/kube-system/configmaps/aws-auth"
+        "uid" = "470dbaac-d3d6-4979-b23b-e4df0204db25"
+      },
+    ]
+  },
+]
+kubectl_config = apiVersion: v1
+preferences: {}
+kind: Config
+
+clusters:
+- cluster:
+    server: https://F860DB549500E9151F9412D852FBD85C.sk1.us-east-1.eks.amazonaws.com
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01EZ3hOREUwTlRZeU0xb1hEVE13TURneE1qRTBOVFl5TTFvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBS3R4CjVmVFJqWU55VklnSlExWlRUSmpDMDlrS1VyNkVQNTRJL2U2VzB5SkRMNW5kcnYwQWwrWWtqNFpRN0ZIOFc0MjkKdXU1OXVNY3BhV0xaYUUzeTBYVWlqdGZhZStCZ00xWUhiODNRWjhjTlIvTHBhQ3Z6VVlWOVNsdHdaZlEwcGhuaQo1TmxINkNoNnQxVmVUYkJpc1psdGU5OUlCb1BnQWoyVEVyNGNrU3krOXpvQmVBUHlMUjZJcUJHWmhFY3Q1V1JYCkYxUXFiOHpaTVdrMjlneHZZTUFGOUZBQm1QMnFBSnMweWQ5ek0xMHpySVBJUDNrSUtZNERHMjU2ckhJRFNhdnoKMllHazNrVnV1cFM4ZVR5aE0zOUV2aGRNS0dkcFcySlpjYSt3RWRNYnBQZk93SUJZcFI4MVZ3bUdVWklsSmhmVQpSMURqQ0dhVzNYUWxoa1c1RlBVQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFJLzA3NjNQQU9VNXlFZ1dsdzBUKzAyalJDSFUKc0w3SEZQRlJpR1RIZ01vNkJ1bHk4R0pLNlp4MkExMDRUZW1OU0V3Y1BYTHNHZDE2S3kvaFVUK3djZWNYOS9OUAp1TzZMNTRId25yNmhZa3dXTEYwYXlzbmNDK1Y5RzJvTG0xYU41NUYxMlpSTUU2bUJ1WEI1VmxoVUlYK2dkZzluCnV2MWZ0OC9NYnJJVXg5eHFjVEg1UmdMbXJITHFPNldaQ2o4aGhBeVhlZ1poeWcyaTRFL09iWXdOclFoRGZNcmEKbWVlbG5HbnJhZjhERVlUNEF3MHVqWG9SVWlNcmFMS205UDBSZ2lCM0xheHA5ZXNFUDBvb1NIRXJDSkZESUtFKwpROUdLa2J2cENxUStlbzU5Y3ZvZ1daRmVDWm52SmNXVll2dUhqVkZYalU5Y25OUG1oby9GWW5aVkIyTT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+  name: eks_template-eks-Jse97EO0
+
+contexts:
+- context:
+    cluster: eks_template-eks-Jse97EO0
+    user: eks_template-eks-Jse97EO0
+  name: eks_template-eks-Jse97EO0
+
+current-context: eks_template-eks-Jse97EO0
+
+users:
+- name: eks_template-eks-Jse97EO0
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      command: aws-iam-authenticator
+      args:
+        - "token"
+        - "-i"
+        - "template-eks-Jse97EO0"
+
+region = us-east-1
