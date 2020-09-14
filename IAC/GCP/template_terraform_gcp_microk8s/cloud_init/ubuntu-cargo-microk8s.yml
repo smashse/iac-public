@@ -17,6 +17,6 @@ runcmd:
  - sudo snap refresh
  - sudo snap install microk8s --classic
  - sudo microk8s status --wait-ready
- - sudo microk8s join 10.158.0.2:25000/868f88ee477f893de65c99d906e767dcaf59ce10fe30795ef9b2d11af4faefa
+ - sleep 2m; sudo microk8s join 10.158.0.2:25000/868f88ee477f893de65c99d906e767dcaf59ce10fe30795ef9b2d11af4faefa
  - sudo apt -y dist-upgrade
  - sudo apt -y autoremove

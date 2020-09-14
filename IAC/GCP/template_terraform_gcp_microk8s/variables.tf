@@ -48,6 +48,12 @@ variable "gcp_machine_type_id" {
   }
 }
 
+variable "gcp_cargo_count" {
+  type        = string
+  description = "Instance count for Cargo instances"
+  default     = "3"
+}
+
 variable "gcp_ssh_key" {
   type        = string
   description = "Username and SSH private key used for instances"

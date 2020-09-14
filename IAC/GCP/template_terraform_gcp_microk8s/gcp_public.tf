@@ -21,8 +21,9 @@ resource "google_compute_instance" "control_instance" {
 
 }
 
-resource "google_compute_instance" "cargo001_instance" {
-  name         = "cargo001-instance"
+resource "google_compute_instance" "cargo_instance" {
+  count        = var.gcp_cargo_count
+  name         = "cargo00${count.index + 1}-instance"
   machine_type = var.gcp_machine_type_id.e2small
   depends_on   = [google_compute_instance.control_instance]
 
@@ -37,30 +38,7 @@ resource "google_compute_instance" "cargo001_instance" {
   }
 
   network_interface {
-    network = google_compute_network.template_default_vpc.self_link
-    access_config {
-    }
-  }
-
-}
-
-resource "google_compute_instance" "cargo002_instance" {
-  name         = "cargo002-instance"
-  machine_type = var.gcp_machine_type_id.e2small
-  depends_on   = [google_compute_instance.control_instance]
-
-  boot_disk {
-    initialize_params {
-      image = var.gcp_image_id.ubuntu
-    }
-  }
-
-  metadata = {
-    user-data = file("./cloud_init/ubuntu-cargo-microk8s.yml")
-  }
-
-  network_interface {
-    network = google_compute_network.template_default_vpc.self_link
+    network = google_compute_network.microk8s_default_vpc.self_link
     access_config {
     }
   }

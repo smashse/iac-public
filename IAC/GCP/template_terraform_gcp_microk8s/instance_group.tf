@@ -4,8 +4,7 @@ resource "google_compute_instance_group" "template_default_ig" {
 
   instances = [
     google_compute_instance.control_instance.id,
-    google_compute_instance.cargo001_instance.id,
-    google_compute_instance.cargo002_instance.id,
+    #google_compute_instance.cargo_instance,
   ]
 
   named_port {
