@@ -40,11 +40,19 @@ variable "gcp_machine_type_id" {
   type        = map
   description = "Instance type used for all Bundle instances"
   default = {
-    "n1micro"  = "f1-micro"  #1vCPU 0.6GB RAM
-    "n1small"  = "g1-small"  #1vCPU 1.7GB RAM
-    "e2micro"  = "e2-micro"  #2vCPU 1.0GB RAM
-    "e2small"  = "e2-small"  #2vCPU 2.0GB RAM
-    "e2medium" = "e2-medium" #2vCPU 4.0GB RAM
+    "n1micro"      = "f1-micro"       #1vCPU 0.6GB RAM
+    "n1small"      = "g1-small"       #1vCPU 1.7GB RAM
+    "e2micro"      = "e2-micro"       #2vCPU 1.0GB RAM
+    "e2small"      = "e2-small"       #2vCPU 2.0GB RAM
+    "e2medium"     = "e2-medium"      #2vCPU 4.0GB RAM
+    "n1standard1"  = "n1-standard-1"  #1vCPU 3.75GB RAM
+    "n1standard2"  = "n1-standard-2"  #2vCPU 7.5GB RAM
+    "n1standard4"  = "n1-standard-4"  #4vCPU 15GB RAM
+    "n1standard8"  = "n1-standard-8"  #8vCPU 30GB RAM
+    "n1standard16" = "n1-standard-16" #16vCPU 60GB RAM
+    "n1standard32" = "n1-standard-32" #32vCPU 120GB RAM
+    "n1standard64" = "n1-standard-64" #64vCPU 240GB RAM
+    "n1standard96" = "n1-standard-96" #96vCPU 360GB RAM
   }
 }
 

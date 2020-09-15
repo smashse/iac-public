@@ -111,9 +111,15 @@ gcloud projects add-iam-policy-binding ${TF_PROJECT} --member serviceAccount:ter
 
 gcloud projects add-iam-policy-binding ${TF_PROJECT} --member serviceAccount:terraform@${TF_PROJECT}.iam.gserviceaccount.com --role roles/storage.admin
 
+gcloud projects add-iam-policy-binding ${TF_PROJECT} --member serviceAccount:terraform@${TF_PROJECT}.iam.gserviceaccount.com --role roles/iam.serviceAccountUser
+
 gcloud projects add-iam-policy-binding ${TF_PROJECT} --member serviceAccount:terraform@${TF_PROJECT}.iam.gserviceaccount.com --role roles/iam.serviceAccountAdmin
 
 gcloud projects add-iam-policy-binding ${TF_PROJECT} --member serviceAccount:terraform@${TF_PROJECT}.iam.gserviceaccount.com --role roles/iam.serviceAccountKeyAdmin
+
+gcloud projects add-iam-policy-binding ${TF_PROJECT} --member serviceAccount:terraform@${TF_PROJECT}.iam.gserviceaccount.com --role roles/container.clusterAdmin
+
+gcloud projects add-iam-policy-binding ${TF_PROJECT} --member serviceAccount:terraform@${TF_PROJECT}.iam.gserviceaccount.com --role roles/iap.httpsResourceAccessor
 ```
 
 ### Enable API Services
@@ -128,6 +134,8 @@ gcloud services enable iam.googleapis.com
 gcloud services enable compute.googleapis.com
 
 gcloud services enable serviceusage.googleapis.com
+
+gcloud services enable container.googleapis.com
 ```
 
 ### Create a basic Terraform custom role (OPTIONAL)
