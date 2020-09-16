@@ -1,6 +1,6 @@
 resource "azurerm_network_security_group" "template_nsg" {
   name                = "template-nsg"
-  location            = "eastus"
+  location            = var.azure_location
   resource_group_name = azurerm_resource_group.template_rg.name
 
   security_rule {

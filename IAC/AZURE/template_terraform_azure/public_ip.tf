@@ -1,6 +1,6 @@
 resource "azurerm_public_ip" "template_pip" {
   name                = "template-pip"
-  location            = "eastus"
+  location            = var.azure_location
   resource_group_name = azurerm_resource_group.template_rg.name
   allocation_method   = "Dynamic"
 

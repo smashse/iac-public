@@ -27,8 +27,10 @@ sed -i "s/template/nomedesejado/g" *.*
 ## Configurar ambiente Terraform
 
 ```bash
-curl "https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip" -o "terraform.zip"
+cd /tmp
+curl "https://releases.hashicorp.com/terraform/0.13.0/terraform_0.13.0_linux_amd64.zip" -o "terraform.zip"
 sudo unzip terraform.zip -d /usr/local/bin/
+terraform -install-autocomplete
 ```
 
 ## Realizar customizações do template
@@ -40,6 +42,7 @@ nano -c variables.tf
 ## Criar chave ssh e exportar para a AWS (Opcional)
 
 ```bash
+cd /tmp
 ssh-keygen -f nomedesejado-access
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip && sudo ./aws/install

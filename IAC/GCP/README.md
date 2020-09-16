@@ -27,13 +27,16 @@ sed -i "s/template/desiredname/g" *.*
 ## Configure Terraform environment
 
 ```bash
-curl "https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip" -o "terraform.zip"
+cd /tmp
+curl "https://releases.hashicorp.com/terraform/0.13.0/terraform_0.13.0_linux_amd64.zip" -o "terraform.zip"
 sudo unzip terraform.zip -d /usr/local/bin/
+terraform -install-autocomplete
 ```
 
 ## Install Google Cloud SDK
 
 ```bash
+cd /tmp
 curl https://sdk.cloud.google.com | bash
 exec -l $SHELL
 gcloud init

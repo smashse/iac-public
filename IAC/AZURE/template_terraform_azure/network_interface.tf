@@ -1,6 +1,6 @@
 resource "azurerm_network_interface" "template_ni" {
   name                = "template-ni"
-  location            = "eastus"
+  location            = var.azure_location
   resource_group_name = azurerm_resource_group.template_rg.name
 
   ip_configuration {

@@ -7,7 +7,7 @@ output "tls_private_key" { value = "tls_private_key.template_ssh.private_key_pem
 
 resource "azurerm_linux_virtual_machine" "template_instance" {
   name                  = "template-instance"
-  location              = "eastus"
+  location              = var.azure_location
   resource_group_name   = azurerm_resource_group.template_rg.name
   network_interface_ids = [azurerm_network_interface.template_ni.id]
   size                  = "Standard_DS1_v2"
