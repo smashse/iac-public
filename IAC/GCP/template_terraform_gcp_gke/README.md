@@ -95,7 +95,7 @@ Terraform has been successfully initialized!
 ```
 
 
-Then, provision your AKS cluster by running `terraform apply`. This will
+Then, provision your GKE cluster by running `terraform apply`. This will
 take approximately 10 minutes.
 
 ```shell
