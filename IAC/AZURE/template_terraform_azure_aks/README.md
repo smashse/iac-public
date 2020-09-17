@@ -35,6 +35,17 @@ sudo unzip terraform.zip -d /usr/local/bin/
 terraform -install-autocomplete
 ```
 
+OR
+
+```bash
+cd /tmp
+curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+sudo apt update --fix-missing
+sudo apt -y install terraform
+terraform -install-autocomplete
+```
+
 **Notes:** This document has few modifications to the original document provided by Hashicorp in "Provision an AKS Cluster (AZURE)"
 
 <https://learn.hashicorp.com/tutorials/terraform/aks?in=terraform/kubernetes>
@@ -74,7 +85,6 @@ Initializing provider plugins...
 
 Terraform has been successfully initialized!
 ```
-
 
 Then, provision your AKS cluster by running `terraform apply`. This will
 take approximately 10 minutes.
@@ -138,4 +148,4 @@ Proxy running on http://127.0.0.1:8001/
 Press CTRL+C to close the tunnel...
 ```
 
- You should be able to access the Kubernetes dashboard at [http://127.0.0.1:8001/](http://127.0.0.1:8001/).
+ You should be able to access the Kubernetes dashboard at <http://127.0.0.1:8001/>.
