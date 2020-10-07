@@ -120,10 +120,10 @@ const myQueue = new aws.sqs.Queue("my_queue", {
 }, { dependsOn: [myuser, mypolicy, policyAttachment, myQueueDlq] });
 
 
-export const myuserName = myuser.id;
-export const myAccesskeyID = myAccessKey.id;
-export const myAccesskeySecret = myAccessKey.sesSmtpPasswordV4;
-export const myPolicyName = mypolicy.id;
-export const myTopicName = myTopic.id;
-export const myQueueDlqName = myQueueDlq.id;
-export const myQueueName = myQueue.id;
+export const iamUserName = myuser.id;
+export const iamAccesskeyID = myAccessKey.id;
+export const iamAccesskeySecret = myAccessKey.sesSmtpPasswordV4;
+export const arnPolicy = mypolicy.id;
+export const arnTopic = myTopic.id;
+export const urlQueueDlq = myQueueDlq.id;
+export const urlQueue = myQueue.id;
