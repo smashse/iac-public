@@ -20,7 +20,7 @@ curl -fsSL https://get.pulumi.com | sh
 sudo snap install node --classic
 ```
 
-## Create a New Project:
+## Create a "pulumi_my" project:
 
 ```bash
 mkdir pulumi_my && cd pulumi_my && pulumi new aws-typescript --emoji --generate-only
@@ -164,9 +164,13 @@ export const urlQueue = myQueue.id;
 
 ## Change "my-region" and "my-account"
 
+### Replace "my-region" with the region of your choice, for example, if you wanted to use "us-east-2" AKA "Ohio" it would look like below:
+
 ```bash
 sed -i "s/"my-region"/"us-east-2"/g" index.ts
 ```
+
+### Replace "my-account" with your AWS account ID without the "-", for example if it were "5555-5555-5555" it would look like below:
 
 ```bash
 sed -i "s/"my-account"/"555555555555"/g" index.ts
@@ -182,7 +186,7 @@ npm install
 pulumi stack init
 ```
 
-## Review the New Project
+## Review the "pulumi_my" project
 
 ```bash
 pulumi preview
@@ -206,13 +210,13 @@ pulumi config set aws:region us-east-2
 pulumi up
 ```
 
-## Destroy the New Project
+## Destroy the "pulumi_my" project
 
 ```bash
 pulumi destroy
 ```
 
-## Remove the New Project from Stack
+## Remove the "pulumi_my" project from Stack
 
 ```bash
 pulumi stack rm dev
