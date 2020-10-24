@@ -1,4 +1,4 @@
-This is an example model for creating an GKE environment with the GCP provider on Pulumi.
+This is a model for creating in Python an GKE environment with the GCP provider on Pulumi.
 
 # Install GCP (Optional)
 

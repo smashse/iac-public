@@ -1,4 +1,4 @@
-This is an example model for creating an EKS environment with the AWS provider on Pulumi.
+This is a model for creating in Python an EKS environment with the AWS provider on Pulumi.
 
 # Install AWS (Optional)
 

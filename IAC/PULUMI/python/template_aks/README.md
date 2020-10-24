@@ -1,4 +1,4 @@
-This is an example model for creating an AKS environment with the AZURE provider on Pulumi.
+This is a model for creating in Python an AKS environment with the AZURE provider on Pulumi.
 
 # Install AZURE (Optional)
 
