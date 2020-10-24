@@ -2,12 +2,14 @@ This is an example model for creating an EKS environment with the AWS provider o
 
 # Install AWS (Optional)
 
+```bash
 cd /tmp
-ssh-keygen -f desiredname-access
+ssh-keygen -f pulumi_eks_py_access
 curl "<https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip>" -o "awscliv2.zip"
 unzip awscliv2.zip && sudo ./aws/install
 aws configure
-aws ec2 import-key-pair --public-key-material "$(cat desiredname-access.pub | base64)" --key-name desiredname-access --profile yourprofile --region us-west-2
+aws ec2 import-key-pair --public-key-material "$(cat pulumi_eks_py_access.pub | base64)" --key-name pulumi_eks_py_access --region us-west-2 --profile yourprofile
+```
 
 ## Download the PULUMI template
 
@@ -95,6 +97,15 @@ pulumi preview
 
 ```bash
 pulumi up
+```
+
+## Access EKS Kubernetes cluster
+
+```bash
+sudo snap install kubectl --classic
+aws eks list-clusters --region us-west-2 --profile yourprofile
+aws eks --region us-west-2 --profile yourprofile update-kubeconfig --name $(pulumi stack output cluster-name)
+kubectl get po --all-namespaces
 ```
 
 ## Destroy the "pulumi_eks_py" project
