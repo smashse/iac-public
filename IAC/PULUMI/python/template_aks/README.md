@@ -53,7 +53,7 @@ sudo apt -y install python3-virtualenv
 
 ```bash
 cd $HOME/Pulumi
-mkdir pulumi_aks_py && cd pulumi_aks_py && pulumi new aws-python --emoji --generate-only --name pulumi_aks_py --description "Pulumi AKS Python"
+mkdir pulumi_aks_py && cd pulumi_aks_py && pulumi new azure-python --emoji --generate-only --name pulumi_aks_py --description "Pulumi AKS Python"
 cp -raf $HOME/Pulumi/iac-public/IAC/PULUMI/python/template_aks/* .
 ```
 
