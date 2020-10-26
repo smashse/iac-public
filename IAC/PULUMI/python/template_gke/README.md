@@ -113,7 +113,7 @@ sudo apt -y install python3-virtualenv
 
 ```bash
 cd $HOME/Pulumi
-mkdir pulumi_gke_py && cd pulumi_gke_py && pulumi new aws-python --emoji --generate-only --name pulumi_gke_py --description "Pulumi GKE Python"
+mkdir pulumi_gke_py && cd pulumi_gke_py && pulumi new gcp-python --emoji --generate-only --name pulumi_gke_py --description "Pulumi GKE Python"
 cp -raf $HOME/Pulumi/iac-public/IAC/PULUMI/python/template_gke/* .
 ```
 
