@@ -1,0 +1,3 @@
+name: pulumi_gcp_py
+runtime: python
+description: Pulumi GCP Python
