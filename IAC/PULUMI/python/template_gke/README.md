@@ -120,7 +120,7 @@ cp -raf $HOME/Pulumi/iac-public/IAC/PULUMI/python/template_gke/* .
 **Note:** If you want to change the name given to Kubernetes cluster, execute the command below in the template folder.
 
 ```bash
-sed -i "s/"template-"/"desiredname-"/g" *.*
+sed -i "s/"template-"/"desiredname-"/g" *.py
 ```
 
 ## Install Python Requirements
