@@ -64,6 +64,10 @@ const myuser = new aws.iam.User("my_user", {
   name: "my_user",
 });
 
+const myAccessKey = new aws.iam.AccessKey("myAccessKey", {
+    user: myuser.name,
+});
+
 const policyAttachment = new aws.iam.PolicyAttachment("my_policy_attachment", {
   name: "my_policy_attachment",
   users: [myuser],
