@@ -1,0 +1,3 @@
+name: pulumi_ec2_py
+runtime: python
+description: Pulumi EC2 Python
