@@ -23,10 +23,11 @@ variable "aws_blueprint_id" {
   type        = map
   description = "OS used for Blueprint IDs"
   default = {
-    "amazon" = "amazon_linux_2018_03_0_2"
+    "amazon" = "amazon_linux_2"
     "centos" = "centos_7_1901_01"
-    "debian" = "debian_9_5"
-    "ubuntu" = "buntu_18_04"
+    "opensuse" = "opensuse_15_1"
+    "debian" = "debian_10"
+    "ubuntu" = "ubuntu_20_04"
   }
 }
 

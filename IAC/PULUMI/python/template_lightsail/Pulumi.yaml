@@ -1,0 +1,3 @@
+name: pulumi_lightsail_py
+runtime: python
+description: Pulumi Lightsail Python
