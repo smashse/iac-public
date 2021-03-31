@@ -118,3 +118,11 @@ pulumi stack rm pulumi_lightsail_py
 <https://www.pulumi.com/docs/reference/pkg/>
 
 <https://www.pulumi.com/docs/intro/concepts/state/>
+
+<https://aws.amazon.com/pt/lightsail/>
+
+<https://lightsail.aws.amazon.com/ls/docs/en_us/articles/compare-options-choose-lightsail-instance-image>
+
+<https://www.cloudsavvyit.com/2307/amazon-lightsail-is-aws-for-regular-people/amp/>
+
+<https://www.sankalpjonna.com/posts/our-aws-bill-is-2-of-revenue-heres-how-we-did-it>
