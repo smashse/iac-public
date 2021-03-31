@@ -1,4 +1,4 @@
-This is a model for creating in Python an EC2 environment with the AWS provider on Pulumi.
+This is a model for creating in Python an Lightsail environment with the AWS provider on Pulumi.
 
 # Install AWS (Optional)
 
@@ -8,7 +8,7 @@ ssh-keygen -f pulumi_lightsail_py_access
 curl "<https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip>" -o "awscliv2.zip"
 unzip awscliv2.zip && sudo ./aws/install
 aws configure
-aws ec2 import-key-pair --public-key-material "$(cat pulumi_lightsail_py_access.pub | base64)" --key-name pulumi_lightsail_py_access --region us-west-2 --profile yourprofile
+aws ec2 import-key-pair --public-key-material "$(cat pulumi_lightsail_py_access.pub | base64)" --key-name pulumi_lightsail_py_access --region us-east-1 --profile yourprofile
 ```
 
 ## Download the PULUMI template
