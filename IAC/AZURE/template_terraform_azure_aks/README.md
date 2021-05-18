@@ -59,7 +59,7 @@ Azure.
 After installing the Azure CLI and logging in. Create an Active Directory service
 principal account.
 
-```shell
+```bash
 $ az ad sp create-for-rbac --skip-assignment
 {
   "appId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
@@ -76,7 +76,7 @@ Terraform will use these values to provision resources on Azure.
 After you've done this, initalize your Terraform workspace, which will download
 the provider and initialize it with the values provided in the `terraform.tfvars` file.
 
-```shell
+```bash
 $ terraform init
 
 Initializing provider plugins...
@@ -89,7 +89,7 @@ Terraform has been successfully initialized!
 Then, provision your AKS cluster by running `terraform apply`. This will
 take approximately 10 minutes.
 
-```shell
+```bash
 $ terraform apply
 
 # Output truncated...
@@ -114,18 +114,18 @@ resource_group_name = light-eagle-rg
 
 To configure kubetcl run the following command:
 
-```shell
+```bash
 $ az aks get-credentials --resource-group light-eagle-rg --name light-eagle-aks;
 ```
 
 The
 [resource group name](https://github.com/hashicorp/learn-terraform-provision-aks-cluster/blob/master/aks-cluster.tf#L16)
 and [AKS name](https://github.com/hashicorp/learn-terraform-provision-aks-cluster/blob/master/aks-cluster.tf#L25)
- correspond to the output variables showed after the successful Terraform run.
+correspond to the output variables showed after the successful Terraform run.
 
 You can view these outputs again by running:
 
-```shell
+```bash
 $ terraform output
 ```
 
@@ -134,18 +134,18 @@ $ terraform output
 To use the Kubernetes dashboard, we need to create a `ClusterRoleBinding`. This
 gives the `cluster-admin` permission to access the `kubernetes-dashboard`.
 
-```shell
+```bash
 $ kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
 clusterrolebinding.rbac.authorization.k8s.io/kubernetes-dashboard created
 ```
 
 Finally, to access the Kubernetes dashboard, run the following command:
 
-```shell
+```bash
 $ az aks browse --resource-group light-eagle-rg --name light-eagle-aks
 Merged "light-eagle-aks" as current context in /var/folders/s6/m22_k3p11z104k2vx1jkqr2c0000gp/T/tmpcrh3pjs_
 Proxy running on http://127.0.0.1:8001/
 Press CTRL+C to close the tunnel...
 ```
 
- You should be able to access the Kubernetes dashboard at <http://127.0.0.1:8001/>.
+You should be able to access the Kubernetes dashboard at <http://127.0.0.1:8001/>.

@@ -72,7 +72,7 @@ required but highly recommended to keep your GKE cluster isolated.
 First, install the [Google Cloud CLI](https://cloud.google.com/sdk/docs/quickstarts)
 and initialize it.
 
-```shell
+```bash
 $ gcloud init
 ```
 
@@ -80,7 +80,7 @@ Once you've initialized gcloud (signed in, selected project), add your account
 to the Application Default Credentials (ADC). This will allow Terraform to access
 these credentials to provision resources on GCloud.
 
-```shell
+```bash
 $ gcloud auth application-default login
 ```
 
@@ -94,7 +94,7 @@ you can find a full list of gcloud regions [here](https://cloud.google.com/compu
 After you've done this, initalize your Terraform workspace, which will download
 the provider and initialize it with the values provided in the `terraform.tfvars` file.
 
-```shell
+```bash
 $ terraform init
 
 Initializing the backend...
@@ -108,7 +108,7 @@ Terraform has been successfully initialized!
 Then, provision your GKE cluster by running `terraform apply`. This will
 take approximately 10 minutes.
 
-```shell
+```bash
 $ terraform apply
 
 # Output truncated...
@@ -133,21 +133,21 @@ region = us-central1
 
 To configure kubetcl, by running the following command.
 
-```shell
+```bash
 $ gcloud container clusters get-credentials dos-terraform-edu-gke --region us-central1
 ```
 
 The
 [Kubernetes Cluster Name](https://github.com/hashicorp/learn-terraform-provision-gke-cluster/blob/master/gke.tf#L63)
 and [Region](https://github.com/hashicorp/learn-terraform-provision-gke-cluster/blob/master/vpc.tf#L29)
- correspond to the resources spun up by Terraform.
+correspond to the resources spun up by Terraform.
 
 ## Deploy and access Kubernetes Dashboard
 
 To deploy the Kubernetes dashboard, run the following command. This will schedule
 the resources necessary for the dashboard.
 
-```shell
+```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
 namespace/kubernetes-dashboard created
 serviceaccount/kubernetes-dashboard created
@@ -172,7 +172,7 @@ $ kubectl proxy
 Starting to serve on 127.0.0.1:8001
 ```
 
- You should be
+You should be
 able to access the Kubernetes dashboard at <http://127.0.0.1:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/>.
 
 ## Authenticate to Kubernetes Dashboard

@@ -65,7 +65,7 @@ Terraform configuration files to provision an EKS cluster on AWS.
 
 After installing the AWS CLI. Configure it to use your credentials.
 
-```shell
+```bash
 $ aws configure
 AWS Access Key ID [None]: <YOUR_AWS_ACCESS_KEY_ID>
 AWS Secret Access Key [None]: <YOUR_AWS_SECRET_ACCESS_KEY>
@@ -78,7 +78,7 @@ This enables Terraform access to the configuration file and performs operations 
 After you've done this, initalize your Terraform workspace, which will download
 the provider and initialize it with the values provided in the `terraform.tfvars` file.
 
-```shell
+```bash
 $ terraform init
 Initializing modules...
 Downloading terraform-aws-modules/eks/aws 9.0.0 for eks...
@@ -104,7 +104,7 @@ Terraform has been successfully initialized!
 Then, provision your EKS cluster by running `terraform apply`. This will
 take approximately 10 minutes.
 
-```shell
+```bash
 $ terraform apply
 
 # Output truncated...
@@ -164,18 +164,18 @@ To configure kubetcl, you need both [kubectl](https://kubernetes.io/docs/tasks/t
 The following command will get the access credentials for your cluster and automatically
 configure `kubectl`.
 
-```shell
+```bash
 $ aws eks --region us-east-1 update-kubeconfig --name template-eks-sR8eLIil --profile yourawsprofile
 ```
 
 The
 [Kubernetes cluster name](https://github.com/hashicorp/learn-terraform-eks/blob/master/outputs.tf#L26)
 and [region](https://github.com/hashicorp/learn-terraform-eks/blob/master/outputs.tf#L21)
- correspond to the output variables showed after the successful Terraform run.
+correspond to the output variables showed after the successful Terraform run.
 
 You can view these outputs again by running:
 
-```shell
+```bash
 $ terraform output
 ```
 
@@ -190,19 +190,19 @@ over time, is not deployed by default in EKS clusters.
 
 Download and unzip the metrics server by running the following command.
 
-```shell
+```bash
 $ wget -O v0.3.6.tar.gz https://codeload.github.com/kubernetes-sigs/metrics-server/tar.gz/v0.3.6 && tar -xzf v0.3.6.tar.gz
 ```
 
 Deploy the metrics server to the cluster by running the following command.
 
-```shell
+```bash
 $ kubectl apply -f metrics-server-0.3.6/deploy/1.8+/
 ```
 
 Verify that the metrics server has been deployed. If successful, you should see something like this.
 
-```shell
+```bash
 $ kubectl get deployment metrics-server -n kube-system
 NAME             READY   UP-TO-DATE   AVAILABLE   AGE
 metrics-server   1/1     1            1           4s
@@ -212,7 +212,7 @@ metrics-server   1/1     1            1           4s
 
 The following command will schedule the resources necessary for the dashboard.
 
-```shell
+```bash
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
 
 namespace/kubernetes-dashboard created
@@ -234,7 +234,7 @@ deployment.apps/dashboard-metrics-scraper created
 Now, create a proxy server that will allow you to navigate to the dashboard
 from the browser on your local machine. This will continue running until you stop the process by pressing `CTRL + C`.
 
-```shell
+```bash
 $ kubectl proxy
 ```
 
@@ -252,7 +252,7 @@ it in the [Kubernetes documentation](https://kubernetes.io/docs/tasks/access-app
 
 Generate the token in another terminal (do not close the `kubectl proxy` process).
 
-```shell
+```bash
 $ kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep service-controller-token | awk '{print $1}')
 
 Name:         service-controller-token-46qlm

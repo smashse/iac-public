@@ -42,34 +42,34 @@ Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]: y
 
 ```yaml
 config:
-  core.https_address: '[::]:8443'
+  core.https_address: "[::]:8443"
   core.trust_password: mobile
 networks:
-- config:
-    ipv4.address: auto
-    ipv6.address: auto
-  description: ""
-  name: lxdbr0
-  type: ""
+  - config:
+      ipv4.address: auto
+      ipv6.address: auto
+    description: ""
+    name: lxdbr0
+    type: ""
 storage_pools:
-- config:
-    size: 10GB
-  description: ""
-  name: default
-  driver: zfs
+  - config:
+      size: 10GB
+    description: ""
+    name: default
+    driver: zfs
 profiles:
-- config: {}
-  description: ""
-  devices:
-    eth0:
-      name: eth0
-      network: lxdbr0
-      type: nic
-    root:
-      path: /
-      pool: default
-      type: disk
-  name: default
+  - config: {}
+    description: ""
+    devices:
+      eth0:
+        name: eth0
+        network: lxdbr0
+        type: nic
+      root:
+        path: /
+        pool: default
+        type: disk
+    name: default
 cluster: null
 ```
 
@@ -138,21 +138,21 @@ sudo nano -c ubuntu-generic-clean.yml
 ```yaml
 #cloud-config
 runcmd:
- - sudo echo "#ubuntu" > /etc/apt/sources.list
- - sudo echo "deb http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse" >> /etc/apt/sources.list
- - sudo echo "deb http://archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse" >> /etc/apt/sources.list
- - sudo echo "deb http://archive.ubuntu.com/ubuntu focal-backports main restricted universe multiverse" >> /etc/apt/sources.list
- - sudo echo "deb http://archive.ubuntu.com/ubuntu focal-proposed restricted main universe multiverse" >> /etc/apt/sources.list
- - sudo echo "#security" >> /etc/apt/sources.list
- - sudo echo "deb http://security.ubuntu.com/ubuntu focal-security main restricted universe multiverse" >> /etc/apt/sources.list
- - sudo echo "#partner" >> /etc/apt/sources.list
- - sudo echo "deb http://archive.canonical.com/ubuntu focal partner" >> /etc/apt/sources.list
- - sudo echo "DEBIAN_FRONTEND=noninteractive" >> /etc/environment
- - sudo source /etc/environment && source /etc/environment
- - sudo apt update --fix-missing
- - sudo apt -y install apt-transport-https bash-completion ca-certificates conntrack curl ethtool htop ipset mlocate nano net-tools nftables socat software-properties-common tar unzip wget xz-utils
- - sudo apt -y dist-upgrade
- - sudo apt -y autoremove
+  - sudo echo "#ubuntu" > /etc/apt/sources.list
+  - sudo echo "deb http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse" >> /etc/apt/sources.list
+  - sudo echo "deb http://archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse" >> /etc/apt/sources.list
+  - sudo echo "deb http://archive.ubuntu.com/ubuntu focal-backports main restricted universe multiverse" >> /etc/apt/sources.list
+  - sudo echo "deb http://archive.ubuntu.com/ubuntu focal-proposed restricted main universe multiverse" >> /etc/apt/sources.list
+  - sudo echo "#security" >> /etc/apt/sources.list
+  - sudo echo "deb http://security.ubuntu.com/ubuntu focal-security main restricted universe multiverse" >> /etc/apt/sources.list
+  - sudo echo "#partner" >> /etc/apt/sources.list
+  - sudo echo "deb http://archive.canonical.com/ubuntu focal partner" >> /etc/apt/sources.list
+  - sudo echo "DEBIAN_FRONTEND=noninteractive" >> /etc/environment
+  - sudo source /etc/environment && source /etc/environment
+  - sudo apt update --fix-missing
+  - sudo apt -y install apt-transport-https bash-completion ca-certificates conntrack curl ethtool htop ipset mlocate nano net-tools nftables socat software-properties-common tar unzip wget xz-utils
+  - sudo apt -y dist-upgrade
+  - sudo apt -y autoremove
 ```
 
 ### Criando um container do Ubuntu e usando o YAML do Cloud-Init
@@ -235,12 +235,12 @@ sudo nano -c microk8s.yml
 ```yaml
 #cloud-config
 runcmd:
- - sudo echo "DEBIAN_FRONTEND=noninteractive" >> /etc/environment
- - sudo source /etc/environment && source /etc/environment
- - sudo apt update --fix-missing
- - sudo apt -y install snap snapd
- - sudo snap install microk8s --classic
- ```
+  - sudo echo "DEBIAN_FRONTEND=noninteractive" >> /etc/environment
+  - sudo source /etc/environment && source /etc/environment
+  - sudo apt update --fix-missing
+  - sudo apt -y install snap snapd
+  - sudo snap install microk8s --classic
+```
 
 ```bash
 lxc launch mobile:focal boat --profile=microk8s-profile --config=user.user-data="$(cat microk8s.yml)"
