@@ -2,10 +2,14 @@ resource "google_compute_instance" "template_instance" {
   name         = "template-instance"
   machine_type = var.gcp_machine_type_id.n1micro
 
+  # boot_disk {
+  #   initialize_params {
+  #     image = var.gcp_image_id.ubuntu
+  #   }
+  # }
+
   boot_disk {
-    initialize_params {
-      image = var.gcp_image_id.ubuntu
-    }
+    source = google_compute_disk.template_instance_disk.name
   }
 
   metadata = {

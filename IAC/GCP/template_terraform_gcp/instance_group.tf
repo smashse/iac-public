@@ -1,8 +1,8 @@
 resource "google_compute_instance_group" "template_default_ig" {
   name = "template-default-ig"
-
+  zone = var.gcp_zone_id[var.gcp_region]
   instances = [
-    google_compute_instance.template_instance.id,
+    google_compute_instance.template_instance.self_link,
   ]
 
   named_port {
@@ -30,5 +30,8 @@ resource "google_compute_instance_group" "template_default_ig" {
     port = "25000"
   }
 
-  zone = var.gcp_zone_id[var.gcp_region]
+  lifecycle {
+    create_before_destroy = true
+  }
+
 }

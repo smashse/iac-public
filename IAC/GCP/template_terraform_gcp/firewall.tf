@@ -4,7 +4,6 @@ resource "google_compute_firewall" "template_default_firewall" {
 
   allow {
     protocol = "icmp"
-    ports    = ["0-65535"]
   }
 
   allow {
