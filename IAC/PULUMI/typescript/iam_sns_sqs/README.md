@@ -21,7 +21,7 @@ export PATH=$HOME/.pulumi/bin:$PATH
 ## Install Node.js:
 
 ```bash
-sudo snap install node --classic
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 ```
 
 ## Create a "pulumi_my" project:
@@ -31,11 +31,7 @@ mkdir pulumi_my && cd pulumi_my && pulumi new aws-typescript --emoji --generate-
 ```
 
 ```bash
-nano -c index.ts
-```
-
-```ts
-import * as pulumi from "@pulumi/pulumi";
+echo 'import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import * as awsx from "@pulumi/awsx";
 
@@ -170,8 +166,9 @@ export const iamAccesskeySecret = myAccessKey.sesSmtpPasswordV4;
 export const arnPolicy = mypolicy.id;
 export const arnTopic = myTopic.id;
 export const urlQueueDlq = myQueueDlq.id;
-export const urlQueue = myQueue.id;
+export const urlQueue = myQueue.id;' > index.ts
 ```
+
 
 ## Change "my-region" and "my-account"
 
