@@ -14,6 +14,10 @@ In this example we will use Pulumi Crosswalk for AWS to easily create a Topic, Q
 curl -fsSL https://get.pulumi.com | sh && bash
 ```
 
+```bash
+export PATH=$HOME/.pulumi/bin:$PATH
+```
+
 ## Install Node.js:
 
 ```bash
